@@ -67,7 +67,7 @@ Book book = new Book();
 			theBook.setCategory(category);
 			theBook.setAuthor(author);
 		} else
-			theBook = new Book(name, category, author);
+			theBook = new Book(name, author, category);
 		// save the Book
 		bookService.save(theBook);
 
