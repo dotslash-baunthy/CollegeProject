@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans
@@ -13,12 +12,9 @@
 
 
 
-	<context:component-scan
-		base-package="in.college.controller" />
-			<context:component-scan
-		base-package="in.college.entities" />
-			<context:component-scan
-		base-package="in.college.service" />
+	<context:component-scan base-package="in.college.controller" />
+	<context:component-scan base-package="in.college.entities" />
+	<context:component-scan base-package="in.college.service" />
 
 
 	<bean
@@ -30,13 +26,10 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 
-	<bean
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		id="dataSource">
-		<property name="driverClassName"
-			value="com.mysql.cj.jdbc.Driver"></property>
-		<property name="url"
-			value="jdbc:mysql://localhost:3306/springJDBC"></property>
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/springJDBC"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="Captain_007"></property>
 	</bean>
@@ -45,7 +38,7 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
- 		<property name="annotatedClasses">
+		<property name="annotatedClasses">
 			<list>
 				<value>in.college.entities.Book</value>
 			</list>
@@ -58,8 +51,8 @@
 			</props>
 		</property>
 	</bean>
-	
-		<bean id="myTransactionManager"
+
+	<bean id="myTransactionManager"
 		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
